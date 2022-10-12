@@ -1,0 +1,44 @@
+<form [formGroup]="myReactiveForm" (ngSubmit)="onSubmit()">
+
+<div formGroupName="FormDetails">
+
+  <div class="mb-3">
+    <label for="username" class="form-label">Username</label>
+    <input type="text" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter your name"
+      formControlName="username">
+      <small class="text-danger" *ngIf="!myReactiveForm.get('FormDetails.username')?.valid && myReactiveForm.get('FormDetails.username')?.touched ">
+       <span *ngIf="myReactiveForm.get('FormDetails.username')?.errors?.['required']"> Enter a user name</span>
+       <span *ngIf="myReactiveForm.get('FormDetails.username')?.errors?.['nameisnotallow']"> Enter a valid name</span>
+      </small>
+  </div>
+
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" class="form-control" id="email" placeholder="Enter your email" formControlName="email">
+    <small class="text-danger" *ngIf="!myReactiveForm.get('FormDetails.email')?.valid && myReactiveForm.get('FormDetails.email')?.touched ">
+      enter a valid email</small>
+  </div>
+</div>
+
+
+  <div class="mb-3">
+    <label for="course">course</label>
+    <select  id="course" formControlName="course">
+      <option value="Angular">Angular</option>
+      <option value="Html">Html</option>
+      <option value="Javascript">Javascript</option>
+    </select>
+  </div>
+
+  <div class="mb-3" formArrayName="skills" >
+    <label >Skills</label>
+    <ng-container *ngFor="let item of skillsdata.controls; let i = index"> 
+    <input type="text" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Add skills "
+    formControlName={{i}}>
+  </ng-container>
+    
+      <button class="btn btn-light btn-sm my-2 btn-add" (click)="AddSkill()"><i>+</i> Add skills</button>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

@@ -1,0 +1,8 @@
+input.ng-touched.ng-invalid{
+    border: 1px solid red;
+}
+.btn-add{
+    font-size: 12px;
+    font-weight: 700;
+    color: black;
+}

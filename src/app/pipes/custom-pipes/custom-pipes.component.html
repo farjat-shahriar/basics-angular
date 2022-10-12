@@ -1,0 +1,38 @@
+<p>custom-pipes works!</p>
+<div class="container">
+    <div class="row">
+        <!-- <div class="col-md-3">
+      
+            <ul >
+                <li  *ngFor="let name of nameArray" >
+                    {{name | custompipe }}
+                </li>
+            </ul>
+        </div> -->
+        <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping">@</span>
+            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping" [(ngModel)]="searchitem">
+          </div>
+
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Prodect Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Handle</th>
+              </tr>
+            </thead>
+
+            <tbody >
+              <tr *ngFor="let arr of custom_arr | filter:searchitem " >
+                <th scope="row">{{arr.sno}}</th>
+                <td>{{arr.pname}}</td>
+                <td>{{arr.price}}</td>
+                <td>{{arr.handle}}</td>
+              </tr>
+            
+            </tbody>
+          </table>
+    </div>
+</div>

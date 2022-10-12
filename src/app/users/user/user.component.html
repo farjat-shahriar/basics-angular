@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+           <form action=""  #submitdata="ngForm" (submit)="onsubmit(submitdata.value)">
+            <div class="form-group">
+                <label for="">User Name</label>
+                <input type="text" placeholder="enter user name" name="name" class="form-control" ngModel />
+            </div>
+            <div class="form-group">
+                <label for="">Technology</label>
+                <input type="text" placeholder="enter user name" name="Technology" class="form-control" ngModel />
+            </div>
+            <button type="submit" class="btn btn-primary">Add user</button>
+
+            <button type="submit" class="btn btn-secondary">Fetch Data</button>
+           </form>
+    </div>
+    <div class="col-md-6">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                  
+                    <th scope="col">Name</th>
+                    <th scope="col">Technology</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+
+            <tbody >
+                <tr *ngFor="let user of users">
+                    <!-- <th scope="row"></th> -->
+                  <td>{{user.name}}</td>
+                  <td>{{user.Technology}}</td>
+                  <td  ><button>Edit</button></td>
+                  <td  ><button>Delete</button></td>
+                </tbody >
+            </table>
+</div>
+</div>

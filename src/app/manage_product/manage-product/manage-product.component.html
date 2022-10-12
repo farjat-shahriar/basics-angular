@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form action="">
+                <div class="form-group">
+                    <label for="id">Product Id</label>
+                    <input type="text" class="form-control" id="id" #id>
+                </div> 
+                 <div class="form-group">
+                    <label for="id">Product Name</label>
+                    <input type="text" class="form-control" id="name" #name>
+                </div> 
+                 <div class="form-group">
+                    <label for="id">Product Price</label>
+                    <input type="text" class="form-control" id="price" #price>
+                </div>
+                <button type="button" class="btn btn-primary" (click)="AddProduct(id,name,price)">{{editMode?'Update':'Add'}}</button>
+                <button type="button" class="btn btn-secondary" (click)="SaveProducts()">Save Data</button>
+                <button type="button" class="btn btn-secondary" (click)="FetchData()">Fetch Data</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                   <tbody  *ngIf="!fetching">
+                    <tr *ngFor="let productslist of product; index as i">
+                        <th scope="row">{{i+1}}</th>
+                      <td>{{productslist.id}}</td>
+                      <td>{{productslist.name}}</td>
+                      <td>{{productslist.price}}</td>
+                      <td (click)="EditProduct(i)" ><button>Edit</button></td>
+                      <td (click)="DeleteProduct(i)" ><button>Delete</button></td>
+                     
+                    </tr>
+                  </tbody>
+            </table>
+            <div class="text-center" *ngIf="fetching">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div> Fetching Data...</div>
+        </div>
+    </div>
+</div>

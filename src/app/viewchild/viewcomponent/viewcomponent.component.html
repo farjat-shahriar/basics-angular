@@ -1,0 +1,9 @@
+<div class="container" appTestDirective>
+    <div class="box">
+      <h1>username:{{uname}}</h1>
+        <button (click)="clickme()">click me</button>
+        <button (click)="changecolor('red')">Red</button>
+        <button (click)="changecolor('green')">Green</button>
+    </div>
+    <ng-content ></ng-content>
+</div>
